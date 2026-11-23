@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+psycopg[binary,pool]
+argon2-cffi
+pydantic[email]
+python-dotenv
