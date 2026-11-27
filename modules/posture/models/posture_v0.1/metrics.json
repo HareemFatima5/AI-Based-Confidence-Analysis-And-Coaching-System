@@ -1,0 +1,9 @@
+{
+  "status": "feasibility only",
+  "feature_set": "upper_body",
+  "n_features": 8,
+  "blocked_cv_macro_f1": 0.6743068141224621,
+  "blocked_cv_ci_low": 0.6602494927074217,
+  "blocked_cv_ci_high": 0.6877613914688312,
+  "majority_macro_f1": 0.22993062438057485
+}
