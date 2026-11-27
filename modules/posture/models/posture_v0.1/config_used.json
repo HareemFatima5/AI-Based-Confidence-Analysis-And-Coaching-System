@@ -1,0 +1,119 @@
+{
+  "config_version": "1.0",
+  "module_version": "posture_v0.1",
+  "seed": 42,
+  "analysis_fps": 10,
+  "min_segment_s": 20,
+  "detection_threshold": 0.8,
+  "hip_visibility_threshold": 0.5,
+  "hip_visible_fraction_min": 0.5,
+  "max_segment_s": 75,
+  "wrap_head_tilt": true,
+  "dataset_url": "hf://datasets/Khubaib01/ConfiDetect-Confidence-Posture-Dataset/confidence_features_dataset.csv",
+  "dataset_local": "data/confidence_features_dataset.csv",
+  "pose_model_path": "models/pose_landmarker_full.task",
+  "pose_model_url": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/latest/pose_landmarker_full.task",
+  "paths": {
+    "data": "data",
+    "outputs": "outputs/posture",
+    "models": "models/posture_v0.1",
+    "videos": "data/videos",
+    "segments": "data/segments.csv",
+    "ratings": "data/ratings.csv"
+  },
+  "segment_names": [
+    "relaxed",
+    "B1",
+    "B2",
+    "B3",
+    "B4"
+  ],
+  "questions": {
+    "B1": "Tell me about yourself.",
+    "B2": "Why do you want this job?",
+    "B3": "Describe a challenge you faced and how you handled it.",
+    "B4": "Where do you see yourself in five years?"
+  },
+  "target": "confidence_label",
+  "numeric_columns": [
+    "eye_shoulder_y_ratio",
+    "shoulder_y_diff",
+    "wrist_distance_x",
+    "wrist_shoulder_ratio",
+    "nose_eye_center_offset_x",
+    "shoulder_span",
+    "hip_shoulder_y_diff",
+    "body_lean_x",
+    "shoulder_center_x",
+    "hip_center_x",
+    "spine_angle",
+    "eye_distance",
+    "head_tilt_angle",
+    "eye_distance_ratio",
+    "shoulder_slope"
+  ],
+  "categorical_columns": [
+    "head_direction",
+    "arm_position",
+    "posture"
+  ],
+  "feature_sets": {
+    "upper_body": [
+      "eye_shoulder_y_ratio",
+      "shoulder_y_diff",
+      "nose_eye_center_offset_x",
+      "shoulder_span",
+      "eye_distance",
+      "head_tilt_angle",
+      "eye_distance_ratio",
+      "shoulder_slope"
+    ],
+    "no_hip": [
+      "eye_shoulder_y_ratio",
+      "shoulder_y_diff",
+      "nose_eye_center_offset_x",
+      "shoulder_span",
+      "eye_distance",
+      "head_tilt_angle",
+      "eye_distance_ratio",
+      "shoulder_slope",
+      "wrist_distance_x",
+      "wrist_shoulder_ratio"
+    ],
+    "full": [
+      "eye_shoulder_y_ratio",
+      "shoulder_y_diff",
+      "nose_eye_center_offset_x",
+      "shoulder_span",
+      "eye_distance",
+      "head_tilt_angle",
+      "eye_distance_ratio",
+      "shoulder_slope",
+      "wrist_distance_x",
+      "wrist_shoulder_ratio",
+      "hip_shoulder_y_diff",
+      "body_lean_x",
+      "spine_angle",
+      "hip_center_x"
+    ]
+  },
+  "deployed_feature_set": "upper_body",
+  "e1": {
+    "n_blocks": 10,
+    "n_bootstrap": 1000,
+    "ci": 0.95,
+    "rf_trees": 300,
+    "rf_min_samples_leaf": 1
+  },
+  "video_feature_names": [
+    "shoulder_instability",
+    "shoulder_tilt_deg",
+    "torso_lean_deg",
+    "movement_speed",
+    "head_height_ratio"
+  ],
+  "manual_check": {
+    "n_recordings": 3,
+    "n_samples_per_recording": 40
+  }
+}

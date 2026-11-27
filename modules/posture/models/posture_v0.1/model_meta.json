@@ -1,0 +1,27 @@
+{
+  "name": "posture_v0.1",
+  "model_type": "RandomForestClassifier",
+  "feature_set": "upper_body",
+  "features": [
+    "eye_shoulder_y_ratio",
+    "shoulder_y_diff",
+    "nose_eye_center_offset_x",
+    "shoulder_span",
+    "eye_distance",
+    "head_tilt_angle",
+    "eye_distance_ratio",
+    "shoulder_slope"
+  ],
+  "classes": [
+    "Confident",
+    "Low",
+    "Neutral"
+  ],
+  "output": "probability of Confident",
+  "positive_class": "Confident",
+  "trained_on": "ConfiDetect posture table",
+  "n_training_rows": 5949,
+  "wrap_head_tilt": true,
+  "seed": 42,
+  "use": "feasibility only, never used to judge the final system"
+}
